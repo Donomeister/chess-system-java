@@ -78,6 +78,6 @@ public class ChessMatch {
         placeNewPiece('d', 4, new Rook(board, Color.WHITE));
         placeNewPiece('e', 1, new Rook(board, Color.WHITE));
         placeNewPiece('e',2 , new Rook(board, Color.WHITE));
-        placeNewPiece('d', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 2, new King(board, Color.WHITE));
     }
 }
