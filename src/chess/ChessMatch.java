@@ -25,12 +25,21 @@ public class ChessMatch {
         }
         return mat;
     }
+
+    public boolean[][] possibleMoves(ChessPosition source){
+        Position sourcePosition = source.toPosition();
+        validSourcePosition(sourcePosition);
+        return board.piece(sourcePosition).possibleMoves();
+    }
+
     public Piece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition){
 
         Position source = sourcePosition.toPosition();
         Position target = targetPosition.toPosition();
 
         validSourcePosition(source);
+
+        validTargetPosition(source, target);
 
         Piece capturedPiece = makeMove(source, target);
 
@@ -43,6 +52,12 @@ public class ChessMatch {
         }
         if(!board.piece(source).isThereAnyPossibleMove()){
             throw new ChessException("There is no possible moves for the chosen piece!");
+        }
+    }
+
+    private void validTargetPosition (Position source, Position target){
+        if (!board.piece(source).possibleMove(target)){
+            throw new ChessException("Invalid target!");
         }
     }
 
@@ -60,17 +75,9 @@ public class ChessMatch {
     private void initialSetup(){
         placeNewPiece('c', 1, new Rook(board, Color.WHITE));
         placeNewPiece('c', 2, new Rook(board, Color.WHITE));
-        placeNewPiece('d', 2, new Rook(board, Color.WHITE));
-        placeNewPiece('e', 2, new Rook(board, Color.WHITE));
+        placeNewPiece('d', 4, new Rook(board, Color.WHITE));
         placeNewPiece('e', 1, new Rook(board, Color.WHITE));
-        placeNewPiece('d', 1, new King(board, Color.WHITE));
-
-        placeNewPiece('c', 7, new Rook(board, Color.BLACK));
-        placeNewPiece('c', 8, new Rook(board, Color.BLACK));
-        placeNewPiece('d', 7, new Rook(board, Color.BLACK));
-        placeNewPiece('e', 7, new Rook(board, Color.BLACK));
-        placeNewPiece('e', 8, new Rook(board, Color.BLACK));
-        placeNewPiece('d', 8, new King(board, Color.BLACK));
-
+        placeNewPiece('e',2 , new Rook(board, Color.WHITE));
+        placeNewPiece('d', 2, new Rook(board, Color.WHITE));
     }
 }
