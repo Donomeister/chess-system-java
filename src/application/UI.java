@@ -5,6 +5,7 @@ import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
+import chess.pieces.King;
 import chess.pieces.Rook;
 
 import java.util.Arrays;
@@ -50,6 +51,9 @@ public class UI {
         System.out.println();
         System.out.println("Turn: " + match.getTurn());
         System.out.println("Waiting player " + match.getcurrentPlayer());
+        if(match.getCheck()){
+            System.out.println("CHECK!");
+        }
     }
 
     public static void printBoard(ChessPiece[][] pieces){
