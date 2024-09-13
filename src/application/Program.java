@@ -47,7 +47,7 @@ public class Program {
                 sc.nextLine();
             }
             UI.printMatch(chessMatch,captured);
-
+    
         }
     }
 }
