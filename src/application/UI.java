@@ -1,12 +1,9 @@
 package application;
 
-import boardgame.Piece;
 import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
-import chess.pieces.King;
-import chess.pieces.Rook;
 
 import java.util.Arrays;
 import java.util.InputMismatchException;
